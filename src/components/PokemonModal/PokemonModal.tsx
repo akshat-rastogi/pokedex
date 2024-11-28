@@ -3,6 +3,7 @@ import React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useGetPokemonDetails } from '../../hooks/useGetPokemonDetails';
+import clsx from 'clsx';
 
 export const PokemonModal: React.FC = () => {
     const classes = useStyles();
@@ -34,7 +35,7 @@ export const PokemonModal: React.FC = () => {
                 )}
                 {loading && <div>Loading...</div>}
             </DialogContent>
-            <DialogActions className={classes.dialogItems}>
+            <DialogActions className={clsx(classes.dialogItems, classes.borderTop)}>
                 <button onClick={handleClose} color="primary">
                     Close
                 </button>
@@ -64,6 +65,9 @@ const useStyles = createUseStyles(
                 background: 'rgb(19, 25, 36)',
                 cursor: 'pointer'
             }
+        },
+        borderTop:{ 
+            borderTop: '1px solid black'
         }
     },
     { name: 'PokemonModal' }
