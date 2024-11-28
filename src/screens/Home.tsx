@@ -5,12 +5,12 @@ import README from '../README.md';
 
 export const Home = () => {
   const classes = useStyles();
-  const [markdown, setMarkdown] = useState('');
+  const [markdown, setMarkdown] = useState<string>('');
 
   useEffect(() => {
     fetch(README)
-      .then((res) => res.text())
-      .then((res) => {
+      .then((res: Response) => res.text())
+      .then((res: string) => {
         setMarkdown(res);
       });
   }, []);

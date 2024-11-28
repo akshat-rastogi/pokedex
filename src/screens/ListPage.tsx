@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createUseStyles } from 'react-jss';
 import { PokemonList } from '../components';
+import { PokemonSearch } from '../components';
 
 export const ListPage = () => {
   const classes = useStyles();
 
+  const [searchText, setSearchText] = useState<string>('');
+
   return (
     <div className={classes.root}>
-      <PokemonList />
+      <PokemonSearch searchText={searchText} setSearchText={setSearchText}/>  
+      <PokemonList searchText={searchText}/>
     </div>
   );
 };

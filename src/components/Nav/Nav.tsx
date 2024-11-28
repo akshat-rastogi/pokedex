@@ -4,7 +4,7 @@ import { useLayout, useToggleNav } from '../../contexts';
 import clsx from 'clsx';
 import { NavOption } from './NavOption';
 
-export const Nav = () => {
+export const Nav: React.FC = () => {
   const { navCollapsed } = useLayout();
   const classes = useStyles({ navCollapsed });
   const toggleNav = useToggleNav();
@@ -14,7 +14,7 @@ export const Nav = () => {
       <div className={classes.root}>
         <div className={classes.main}>
           <div className={classes.title}>
-            <img src="/pokeball-white.png" className={classes.img} />
+            <img src="/pokeball-white.png" className={classes.img} alt="pokeball white image"/>
             <h3>Pokémon</h3>
           </div>
           <NavOption to="/" icon="home" name="Home">
